@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "esnext",
+    "lib": ["esnext"],
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "jsx": "preserve",
+    "baseUrl": "./",
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "paths": {
+      "@mini-vue/shared": ["./packages/shared/src/index.ts"],
+      "@mini-vue/reactivity": ["./packages/reactivity/src/index.ts"]
+    }
+  },
+  "exclude": [
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/test/dts/**"
+  ]
+}

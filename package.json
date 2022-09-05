@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "test": "vitest"
+  },
+  "engines": {
+    "node": ">=16.11.0"
+  },
+  "author": "snowingfox",
+  "license": "MIT",
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.26.3",
+    "@antfu/ni": "^0.18.0",
+    "@mini-vue/shared": "workspace:*",
+    "@types/node": "^18.7.14",
+    "eslint": "8.0.1",
+    "typescript": "^4.8.2",
+    "unbuild": "^0.8.10",
+    "vite": "^3.0.9",
+    "vitest": "^0.22.1"
+  }
+}
