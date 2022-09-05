@@ -1,4 +1,4 @@
-import { effect, isRef, proxyRefs, reactive, ref, toRef, unref } from '@mini-vue/reactivity'
+import { effect, isRef, proxyRefs, reactive, ref, toRef, toRefs, unref } from '@mini-vue/reactivity'
 import { describe, expect, test } from 'vitest'
 
 describe('ref', () => {
@@ -99,5 +99,18 @@ describe('ref', () => {
     // should keep ref
     const r = { x: ref(1) }
     expect(toRef(r, 'x')).toBe(r.x)
+  })
+
+  test('toRefs reactive array', () => {
+    const arr = reactive(['a', 'b', 'c'])
+    const refs = toRefs(arr)
+
+    expect(Array.isArray(refs)).toBe(true)
+
+    refs[0].value = '1'
+    expect(arr[0]).toBe('1')
+
+    arr[1] = '2'
+    expect(refs[1].value).toBe('2')
   })
 })
