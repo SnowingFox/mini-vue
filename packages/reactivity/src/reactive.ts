@@ -38,11 +38,11 @@ function targetTypeMap(rawType: string) {
   }
 }
 
-function getTargetType(value: Target) {
-  return value[ReactiveFlags.SKIP] || !Object.isExtensible(value)
-    ? TargetType.INVALID
-    : targetTypeMap(toRawType(value))
-}
+// function getTargetType(value: Target) {
+//   return value[ReactiveFlags.SKIP] || !Object.isExtensible(value)
+//     ? TargetType.INVALID
+//     : targetTypeMap(toRawType(value))
+// }
 
 export const reactiveMap = new WeakMap<Target, any>()
 export const shallowReactiveMap = new WeakMap<Target, any>()
@@ -81,6 +81,10 @@ export function isReadonly(target: unknown) {
 
 export function isProxy(value: unknown): boolean {
   return isReactive(value) || isReadonly(value)
+}
+
+export function isShallow(value: unknown): boolean {
+  return !!(value && (value as Target)[ReactiveFlags.IS_SHALLOW])
 }
 
 export function toRaw<T>(observed: T): T {

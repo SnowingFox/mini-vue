@@ -1,4 +1,5 @@
-import { extend, isArray, isIntegerKey, isMap } from '@mini-vue/shared'
+import { extend, isIntegerKey } from '@mini-vue/shared'
+import type { ComputedRefImpl } from './computed'
 import type { Dep } from './dep'
 import { createDep } from './dep'
 import type { TrackOpTypes } from './operations'
@@ -35,6 +36,8 @@ export class ReactiveEffect<T = any> {
 
   onStop?: () => void
   allowRecurse?: boolean
+
+  computed?: ComputedRefImpl<T>
 
   constructor(
     public fn: () => T,
