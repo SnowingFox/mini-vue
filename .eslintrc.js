@@ -6,5 +6,6 @@ module.exports = {
     'curly': 'off',
     'import/no-mutable-exports': 'off',
     '@typescript-eslint/brace-style': 'off',
+    '@typescript-eslint/no-unnecessary-type-constraint': 'off',
   },
 }
