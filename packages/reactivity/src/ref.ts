@@ -1,4 +1,4 @@
-import { hasChanged } from '@mini-vue/shared'
+import { hasChanged, isArray } from '@mini-vue/shared'
 import type { IfAny } from '@mini-vue/shared/src/typeUtils'
 import { createDep } from './dep'
 import type { Dep } from './dep'
@@ -132,6 +132,19 @@ export function toRef<T extends object, K extends keyof T>(
     : (new ObjectRefImpl(object, key, defaultValue) as any)
 }
 
+export function toRefs<T extends object>(
+  object: T,
+): {
+    [K in keyof T]: ToRef<T[K]>
+  } {
+  const ret = isArray(object) ? new Array(object.length) : {} as any
+
+  for (const key in object) {
+    ret[key] = toRef(object, key)
+  }
+
+  return ret
+}
 const shallowUnwrapHandlers: ProxyHandler<any> = {
   get: (target, key, receiver) => unref(Reflect.get(target, key, receiver)),
   set: (target, key, value, receiver) => {
