@@ -132,11 +132,13 @@ export function toRef<T extends object, K extends keyof T>(
     : (new ObjectRefImpl(object, key, defaultValue) as any)
 }
 
+export type ToRefs<T = any> = {
+  [K in keyof T]: ToRef<T[K]>
+}
+
 export function toRefs<T extends object>(
   object: T,
-): {
-    [K in keyof T]: ToRef<T[K]>
-  } {
+): ToRefs<T> {
   const ret = isArray(object) ? new Array(object.length) : {} as any
 
   for (const key in object) {
