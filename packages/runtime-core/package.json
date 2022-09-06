@@ -1,0 +1,24 @@
+{
+  "name": "@mini-vue/runtime-core",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "build": "unbuild"
+  },
+  "author": "snowingfox",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "sideEffects": false,
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ]
+}
