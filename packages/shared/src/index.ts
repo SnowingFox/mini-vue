@@ -1,3 +1,5 @@
+export * from './typeUtils'
+
 export const extend = Object.assign
 
 export const objectToString = Object.prototype.toString
