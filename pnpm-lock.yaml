@@ -6,6 +6,8 @@ importers:
     specifiers:
       '@antfu/eslint-config': ^0.26.3
       '@antfu/ni': ^0.18.0
+      '@mini-vue/playground': workspace:*
+      '@mini-vue/reactivity': workspace:*
       '@mini-vue/shared': workspace:*
       '@types/node': ^18.7.14
       eslint: 8.0.1
@@ -16,6 +18,8 @@ importers:
     devDependencies:
       '@antfu/eslint-config': 0.26.3_kpjtkcqulvdyklgz4ril4z2piy
       '@antfu/ni': 0.18.0
+      '@mini-vue/playground': link:packages/playground
+      '@mini-vue/reactivity': link:packages/reactivity
       '@mini-vue/shared': link:packages/shared
       '@types/node': 18.7.14
       eslint: 8.0.1
@@ -23,6 +27,21 @@ importers:
       unbuild: 0.8.10
       vite: 3.0.9
       vitest: 0.22.1
+
+  packages/playground:
+    specifiers:
+      typescript: ^4.6.4
+    devDependencies:
+      typescript: 4.8.2
+
+  packages/reactivity:
+    specifiers: {}
+
+  packages/runtime-core:
+    specifiers: {}
+
+  packages/shared:
+    specifiers: {}
 
 packages:
 

@@ -19,7 +19,8 @@
     "paths": {
       "@mini-vue/shared": ["./packages/shared/src/index.ts"],
       "@mini-vue/reactivity": ["./packages/reactivity/src/index.ts"],
-      "@mini-vue/runtime-core": ["./packages/runtime-core/src/index.ts"]
+      "@mini-vue/runtime-core": ["./packages/runtime-core/src/index.ts"],
+      "@mini-vue/playground": ["./packages/playground/src/index.ts"]
     }
   },
   "exclude": [
