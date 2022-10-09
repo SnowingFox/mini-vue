@@ -1,34 +1,20 @@
-import type { Ref } from '@mini-vue/reactivity'
-import { effect, ref } from '@mini-vue/reactivity'
+import { createRenderer } from '@mini-vue/runtime-core'
 
-const app = document.querySelector('#app')!
-
-function App() {
-  const count = ref(0)
-
-  const button = document.createElement('button')
-
-  button.textContent = 'inc'
-  button.addEventListener('click', () => {
-    count.value++
-  })
-
-  return () => {
-    patch(count)
-    return button
-  }
-}
-
-function render(app: Element, vnode: HTMLElement) {
-  app.appendChild(vnode)
-}
-
-function patch(state: Ref) {
-  app.innerHTML = `${state.value}`
-}
-
-const component = App()
-
-effect(() => {
-  render(app!, component())
+const renderer = createRenderer<HTMLDivElement, HTMLDivElement>({
+  createElement(type) {
+    return document.createElement(type)
+  },
+  insert(el, parent) {
+    parent.appendChild(el)
+  },
+  setText(node, text) {
+    node.textContent = text
+  },
+  remove(el) {
+    el.remove()
+  },
 })
+
+const app = { tag: 'div', children: 'hello world' }
+
+renderer.render(app, document.querySelector('#app')!)
