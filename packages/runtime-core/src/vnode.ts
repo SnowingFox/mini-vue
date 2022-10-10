@@ -1,4 +1,4 @@
-import type { RendererElement } from './renderer'
+import type { RendererElement, RendererNode } from './renderer'
 
 export const Text = Symbol('Text')
 export const Fragment = Symbol('Fragment')
@@ -11,15 +11,15 @@ export type VNodeTypes =
   | typeof Comment
   | typeof Fragment
 
-export interface VNode<HostNode = RendererElement, ParentNode = any> {
+export type VNodeProps = Record<string, string>
+
+export interface VNode<HostNode = RendererNode, HostElement = RendererElement> {
   type: VNodeTypes
 
-  el?: HostNode | null
+  el: HostNode | null
 
   children?: Object | string | Object[]
-}
 
-export interface VNodeProps {
-
+  props?: VNodeProps
 }
 
